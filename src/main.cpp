@@ -9,6 +9,7 @@
 
 */
 //if your car speed too fast or too slow or not moving, please adjust MID_SPEED,HIGH_SPEED,LOW_SPEED value in line 13,14,15,
+#include <Arduino.h>
 #include "SPI.h"     // SPI library
 #include "MFRC522.h" // RFID library (https://github.com/miguelbalboa/rfid)
 #include <TimerFive.h>
