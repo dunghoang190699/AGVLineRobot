@@ -119,19 +119,51 @@ ISR(TIMER4_COMPA_vect)
 	FSM();
 }
 
+
+// TODO: 
+// var currentPosition;
+// var hasItem = 0;
+// var moveBack = 0;
 void loop()
 {
 	// check to see if it's time to change the state of the LED
 	unsigned long currentMillis = millis();
 
+	// TODO:
+	// if (currentPosition == initPosition)
+	// {
+	// 	// readItemRFID will return the boolean value True or False
+	// 	if (readItemRFID() ) { // set goal
+	// 		hasItem = 1;
+	// 	}
+	// }
+	// else if (currentPosition == endPosition) // endPostion ==  goal 
+	// {
+	// 	moveBack = 1;
+	// }
+
 	if (currentMillis - previousMillis1 >= OnTime1)
 	{
 		previousMillis1 = currentMillis; // Remember the time
-		if (flag_tracking == 1 and no_object == 1)
+		if (flag_tracking == 1 and no_object == 1) // TODO: add has_item  if (flag_tracking == 1 and no_object == 1 and has_item == 1)
 		{
 			tracking();
 		}
+		// TODO: move back
+		// else if (moveBack == 1){
+		// 	tracking();
+		// }
 	}
+
+	// TODO: return back hasItem when reach the destination
+	
+
+	// ENDTODO: return back hasItem when reach the destination 
+
+	// TODO: return back moveBack when reach the initPositon
+
+	// ENDTODO: return back moveBack when reach the initPositon
+
 	if (currentMillis - previousMillis3 >= OffTime1)
 	{
 		previousMillis3 = currentMillis; // Remember the time
@@ -141,9 +173,12 @@ void loop()
 		}
 	}
 
+
+	// always read the robot position
 	if (currentMillis - previousMillis2 >= OnTime2)
 	{
 		previousMillis2 = currentMillis; // Remember the time
 		readRFID();
 	}
+
 }
